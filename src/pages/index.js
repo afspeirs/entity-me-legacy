@@ -1,22 +1,82 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import styles from './index.module.scss';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  const { entities } = data.entity;
+  // console.log(data); // eslint-disable-line no-console
 
-export default IndexPage
+  return (
+    <Layout>
+      <SEO />
+
+      <table className={styles.table}>
+        <tbody>
+          {entities.map((entity) => (
+            <tr
+              key={entity.title}
+              className={styles.row}
+              title={entity.title}
+              data-block={entity.data_block}
+              data-category={entity.data_category}
+              data-set={entity.data_set}
+            >
+              {entity.info.map((info) => (
+                <td
+                  key={info.text}
+                  className={`${styles.data} ${styles[info.class]}`}
+                >
+                  <code>{info.text}</code>
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </Layout>
+  );
+};
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    entity: PropTypes.shape({
+      entities: PropTypes.arrayOf(
+        PropTypes.shape({
+          data_block: PropTypes.string,
+          data_category: PropTypes.string,
+          data_set: PropTypes.string,
+          info: PropTypes.arrayOf(
+            PropTypes.shape({
+              class: PropTypes.string,
+              text: PropTypes.string,
+            }),
+          ),
+          title: PropTypes.string,
+        }),
+      ),
+    }),
+  }).isRequired,
+};
+
+export default IndexPage;
+
+export const pageQuery = graphql`
+  {
+    entity {
+      entities {
+        data_block
+        data_category
+        data_set
+        info {
+          class
+          text
+        }
+        title
+      }
+    }
+  }
+`;

@@ -1,0 +1,53 @@
+.table {
+  display: block;
+  font: .8em Monaco;
+}
+
+.row {
+  position: relative;
+  display: inline-block;
+  width: 10em;
+  height: 10em;
+  margin: 0.5em;
+  padding: 1px;
+  background: #eee;
+  text-align: center;
+
+  &:hover {
+    .character {
+      font-size: 2em;
+    }
+
+    .dec
+    .hex {
+      visibility: visible;
+    }
+
+    // .desc {
+    //   display: block;
+    //   top: 100%;
+    //   left: 0;
+    // }
+  }
+}
+
+.data {
+  display: block;
+}
+
+.character {
+  font: 4em "Georgia", "Apple Symbols", serif;
+  line-height: 1.1;
+}
+
+.dec,
+.hex {
+  visibility: hidden;
+}
+.desc {
+  position: absolute;
+  display: none;
+  text-align: center;
+  background: silver;
+  color: black;
+}
