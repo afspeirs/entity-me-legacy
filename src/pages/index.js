@@ -8,7 +8,7 @@ import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => {
   const { entities } = data.entity;
-  // console.log(data); // eslint-disable-line no-console
+  // console.log(entities); // eslint-disable-line no-console
 
   return (
     <Layout>

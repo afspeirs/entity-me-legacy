@@ -25,7 +25,7 @@ exports.sourceNodes = async ({
         ...element.attribs,
         info: element.children.map((data) => ({
           class: data.attribs.class,
-          text: $(data).text(),
+          text: $(data).text().replace('\t', '\\t').replace('\n', '\\n'),
         })),
         // ...Object.assign({}, ...element.children.map((data) => ({
         //   [data.attribs.class]: $(data).text(),
