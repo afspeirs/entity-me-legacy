@@ -7,6 +7,10 @@
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 
+const replaceText = (string) => string
+  .replace('\t', '\\t')
+  .replace('\n', '\\n');
+
 exports.sourceNodes = async ({
   actions: { createNode },
   createContentDigest,
@@ -25,7 +29,7 @@ exports.sourceNodes = async ({
         ...element.attribs,
         info: element.children.map((data) => ({
           class: data.attribs.class,
-          text: $(data).text().replace('\t', '\\t').replace('\n', '\\n'),
+          text: replaceText($(data).text()),
         })),
         // ...Object.assign({}, ...element.children.map((data) => ({
         //   [data.attribs.class]: $(data).text(),
