@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import SnackbarProvider from 'react-simple-snackbar';
 
-import styles from './index.module.scss';
+import EntityCards from '../components/entity-cards';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -11,56 +12,13 @@ const IndexPage = ({ data }) => {
   // console.log(entities); // eslint-disable-line no-console
 
   return (
-    <Layout>
-      <SEO />
+    <SnackbarProvider>
+      <Layout>
+        <SEO />
 
-      <div className={styles.container}>
-        {entities.map((entity) => (
-          <div
-            key={entity.title}
-            className={styles.card}
-            title={entity.title}
-            data-block={entity.data_block}
-            data-category={entity.data_category}
-            data-set={entity.data_set}
-          >
-            <ul>
-              {entity.info.map((info) => (
-                <li
-                  key={info.text}
-                  className={styles[info.class]}
-                >
-                  <code>{info.text}</code>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-      {/* <table className={styles.table}>
-        <tbody>
-          {entities.map((entity) => (
-            <tr
-              key={entity.title}
-              className={styles.row}
-              title={entity.title}
-              data-block={entity.data_block}
-              data-category={entity.data_category}
-              data-set={entity.data_set}
-            >
-              {entity.info.map((info) => (
-                <td
-                  key={info.text}
-                  className={`${styles.data} ${styles[info.class]}`}
-                >
-                  <code>{info.text}</code>
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
-    </Layout>
+        <EntityCards entities={entities} />
+      </Layout>
+    </SnackbarProvider>
   );
 };
 

@@ -29,7 +29,7 @@ exports.sourceNodes = async ({
         ...element.attribs,
         info: element.children.map((data) => ({
           class: data.attribs.class,
-          text: replaceText($(data).text()),
+          text: replaceText($(data).text().trim()),
         })),
         // ...Object.assign({}, ...element.children.map((data) => ({
         //   [data.attribs.class]: $(data).text(),

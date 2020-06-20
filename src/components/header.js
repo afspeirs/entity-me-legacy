@@ -1,22 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './header.module.scss';
+
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      color: '#ffffff',
-      background: '#9c27b0',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>{siteTitle}</h1>
+  <header className={styles.header}>
+    <div className={styles.content}>
+      <h1>{siteTitle}</h1>
     </div>
   </header>
 );
