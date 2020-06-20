@@ -14,7 +14,30 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO />
 
-      <table className={styles.table}>
+      <div className={styles.container}>
+        {entities.map((entity) => (
+          <div
+            key={entity.title}
+            className={styles.card}
+            title={entity.title}
+            data-block={entity.data_block}
+            data-category={entity.data_category}
+            data-set={entity.data_set}
+          >
+            <ul>
+              {entity.info.map((info) => (
+                <li
+                  key={info.text}
+                  className={styles[info.class]}
+                >
+                  <code>{info.text}</code>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      {/* <table className={styles.table}>
         <tbody>
           {entities.map((entity) => (
             <tr
@@ -36,7 +59,7 @@ const IndexPage = ({ data }) => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
     </Layout>
   );
 };

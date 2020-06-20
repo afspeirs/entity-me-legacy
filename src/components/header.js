@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: 'darksalmon',
+      color: '#ffffff',
+      background: '#9c27b0',
       marginBottom: '1.45rem',
     }}
   >
