@@ -1,15 +1,10 @@
-const {
-  npm_package_author_name: author,
-  npm_package_description: description,
-  npm_package_version: version,
-} = process.env;
+const description = 'A simple static site to show all of the HTML entities, and provide an easy method of copying its contents';
 
 module.exports = {
   siteMetadata: {
-    author,
+    author: 'AFSpeirs',
     description,
     title: 'EntityMe',
-    version,
   },
   plugins: [
     {
