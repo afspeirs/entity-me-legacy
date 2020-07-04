@@ -1,10 +1,11 @@
-const description = 'A simple static site to show all of the HTML entities, and provide an easy method of copying its contents';
+const packageJson = require('./package.json');
 
 module.exports = {
   siteMetadata: {
     author: 'AFSpeirs',
-    description,
+    description: packageJson.description,
     title: 'EntityMe',
+    version: packageJson.version,
   },
   plugins: [
     {
@@ -12,7 +13,7 @@ module.exports = {
       options: {
         name: 'EntityMe',
         short_name: 'EntityMe',
-        description,
+        description: packageJson.description,
         start_url: '/',
         background_color: '#9c27b0',
         theme_color: '#9c27b0',
@@ -22,7 +23,7 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
+    'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',

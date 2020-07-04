@@ -18,6 +18,11 @@ body {
   box-sizing: border-box;
 }
 
+::selection {
+  color: var(--clr-light);
+  background-color: var(--clr-theme);
+}
+
 ::-webkit-scrollbar {
   max-width: 8px;
   max-height: 8px;

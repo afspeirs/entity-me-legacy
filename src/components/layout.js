@@ -1,34 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
 import styles from '../styles/layout.module.scss';
 import '../styles/layout.scss';
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(
-    graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `,
-  );
+const Layout = ({ children }) => (
+  <div className={styles.root}>
+    <Header />
 
-  return (
-    <div className={styles.root}>
-      <Header siteTitle={data.site.siteMetadata.title} />
-
-      <main className={styles.scroller}>
-        {children}
-      </main>
-    </div>
-  );
-};
+    <main className={styles.scroller}>
+      {children}
+    </main>
+  </div>
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

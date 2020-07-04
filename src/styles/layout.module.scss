@@ -18,6 +18,11 @@
 .theme-background {
   color: var(--clr-light);
   background-color: var(--clr-theme);
+
+  ::selection {
+    color: var(--clr-theme);
+    background-color: var(--clr-light);
+  }
 }
 
 .content {
@@ -28,5 +33,19 @@
   h1 {
     margin: 0;
     font-size: 1.6em;
+
+    sup {
+      font-size: 0.65em;
+      opacity: 0.9;
+    }
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
