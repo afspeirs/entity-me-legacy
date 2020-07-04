@@ -1,8 +1,10 @@
+const description = 'A simple static site to show all of the HTML entities, and provide an easy method of copying its contents';
+
 module.exports = {
   siteMetadata: {
-    title: 'EntityMe',
-    description: 'A simple static site to show all of the HTML entities, and provide an easy method of copying its contents',
     author: 'AFSpeirs',
+    description,
+    title: 'EntityMe',
   },
   plugins: [
     {
@@ -10,10 +12,11 @@ module.exports = {
       options: {
         name: 'EntityMe',
         short_name: 'EntityMe',
+        description,
         start_url: '/',
         background_color: '#9c27b0',
         theme_color: '#9c27b0',
-        display: 'minimal-ui',
+        display: 'standalone',
         // icon: 'src/images/gatsby-icon.png',
       },
     },
