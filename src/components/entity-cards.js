@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSnackbar } from 'react-simple-snackbar';
 
-import styles from './entity-cards.module.scss';
+import styles from '../styles/entity-cards.module.scss';
 
 const EntityCards = ({ entities }) => {
   const [openSnackbar] = useSnackbar({

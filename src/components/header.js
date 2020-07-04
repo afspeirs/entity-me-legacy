@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './layout.module.scss';
+import styles from '../styles/layout.module.scss';
 
 const Header = ({ siteTitle }) => (
   <header className={styles.themeBackground}>
