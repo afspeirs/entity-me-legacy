@@ -13,19 +13,25 @@ const Layout = ({ children }) => {
         site {
           siteMetadata {
             title
+            version
           }
         }
       }
     `,
   );
 
+  const { title, version } = data.site.siteMetadata;
+
   return (
     <div className={styles.root}>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={title} />
 
       <main className={styles.scroller}>
         {children}
       </main>
+      <span className={styles.visuallyHidden}>
+        {version}
+      </span>
     </div>
   );
 };

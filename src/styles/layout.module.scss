@@ -30,3 +30,12 @@
     font-size: 1.6em;
   }
 }
+
+.visually-hidden {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
