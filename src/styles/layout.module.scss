@@ -6,6 +6,8 @@
   left: 0;
   width: 100%;
   height: 100%;
+  color: var(--clr-dark);
+  background-color: var(--clr-background);
 }
 
 .scroller {
@@ -14,8 +16,8 @@
 }
 
 .theme-background {
-  color: #ffffff;
-  background: #9c27b0;
+  color: var(--clr-light);
+  background-color: var(--clr-theme);
 }
 
 .content {

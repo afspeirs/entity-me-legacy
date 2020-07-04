@@ -17,7 +17,7 @@ module.exports = {
         background_color: '#9c27b0',
         theme_color: '#9c27b0',
         display: 'standalone',
-        // icon: 'src/images/gatsby-icon.png',
+        icon: 'src/images/logo.svg',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
@@ -26,13 +26,13 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     name: 'images',
-    //     path: `${__dirname}/src/images`,
-    //   },
-    // },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
+      },
+    },
     'gatsby-transformer-sharp',
   ],
 };
