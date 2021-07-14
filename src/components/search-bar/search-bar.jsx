@@ -4,8 +4,7 @@ import { useGlobalState } from '../../hooks/GlobalState';
 const SearchBar = () => {
 	const [{ search }, dispatch] = useGlobalState();
 
-	// TODO: add hotkey to focus on input (using useRef)
-	// TODO: add hotkey to clear input
+	// TODO add hotkey to focus/clear input (using useRef)
 
 	const updateSearchText = (text) => {
 		dispatch({
