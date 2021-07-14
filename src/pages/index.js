@@ -1,20 +1,17 @@
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import SnackbarProvider from 'react-simple-snackbar';
 
 import EntityCards from '../components/entity-cards';
 import Container from '../components/container';
 
 const IndexPage = ({ data }) => {
 	const { entities } = data.entity;
-	// console.log(entities); // eslint-disable-line no-console
+	console.log(entities); // eslint-disable-line no-console
 
 	return (
-		<SnackbarProvider>
-			<Container>
-				<EntityCards entities={entities} />
-			</Container>
-		</SnackbarProvider>
+		<Container>
+			<EntityCards entities={entities} />
+		</Container>
 	);
 };
 
