@@ -7,7 +7,7 @@ import { useGlobalState } from '../../hooks/GlobalState';
 
 const EntityCards = ({ entities }) => {
 	const [{ search }] = useGlobalState();
-	const [filteredEntities, setFilteredEntities] = useState([]);
+	const [filteredEntities, setFilteredEntities] = useState();
 
 	const [openSnackbar] = useSnackbar({
 		position: 'bottom-left',
@@ -37,7 +37,17 @@ const EntityCards = ({ entities }) => {
 
 	return (
 		<div className={styles.container}>
-			{filteredEntities.length === 0 && (
+			{!filteredEntities && (
+				<div className={styles.card}>
+					<div className={styles.placeholder}>
+						Loading entities...
+						<br />
+						<br />
+						Please wait
+					</div>
+				</div>
+			)}
+			{filteredEntities?.length === 0 && (
 				<div className={styles.card}>
 					<div className={styles.placeholder}>
 						No results found for:
@@ -46,7 +56,7 @@ const EntityCards = ({ entities }) => {
 					</div>
 				</div>
 			)}
-			{filteredEntities.map((entity) => (
+			{filteredEntities?.map((entity) => (
 				<div
 					key={entity.title}
 					className={styles.card}
