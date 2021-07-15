@@ -1,6 +1,6 @@
 {
   "name": "entity-me",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "A simple static site to show all of the HTML entities, and provide an easy method of copying its contents",
   "author": "AFSpeirs",
   "scripts": {
