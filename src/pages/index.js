@@ -6,7 +6,7 @@ import Container from '../components/container';
 
 const IndexPage = ({ data }) => {
 	const { entities } = data.entity;
-	console.log(entities); // eslint-disable-line no-console
+	// console.log(entities); // eslint-disable-line no-console
 
 	return (
 		<Container>
