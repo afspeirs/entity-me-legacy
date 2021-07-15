@@ -1,45 +1,65 @@
+import { useState } from 'react';
+
 import * as styles from './search-bar.module.scss';
 import { useGlobalState } from '../../hooks/GlobalState';
 
 const SearchBar = () => {
 	const [{ search }, dispatch] = useGlobalState();
+	const [text, setText] = useState(search.text);
 
 	// TODO add hotkey to focus/clear input (using useRef)
 
-	const updateSearchText = (text) => {
+	const updateSearchText = (newText) => {
 		dispatch({
 			type: 'app-search',
 			value: {
 				...search,
-				text,
+				text: newText,
 			},
 		});
 	};
 
-	const handleTextClear = () => updateSearchText('');
+	const handleTextClear = () => {
+		updateSearchText('');
+		setText('');
+	};
 
-	const handleTextInput = (event) => updateSearchText(event.target.value);
+	const handleTextInput = (event) => setText(event.target.value);
+
+	const handleTextSubmit = (event) => {
+		event.preventDefault();
+		updateSearchText(text);
+	};
 
 	return (
-		<div className={styles.root}>
-			<input
-				type="text"
-				className={styles.search}
-				placeholder="Search for an entity..."
-				onChange={handleTextInput}
-				value={search.text}
-			/>
-			{search.text?.length !== 0 && (
-				<button
-					type="button"
-					aria-label="Clear Search"
-					className={styles.clear}
-					onClick={handleTextClear}
-				>
-					x
-				</button>
-			)}
-		</div>
+		<form className={styles.form} onSubmit={handleTextSubmit}>
+			<div className={styles.searchRoot}>
+				<input
+					type="text"
+					className={styles.search}
+					placeholder="Search for an entity..."
+					onChange={handleTextInput}
+					value={text}
+				/>
+				{text.length !== 0 && (
+					<button
+						type="button"
+						className={styles.clear}
+						onClick={handleTextClear}
+					>
+						x
+					</button>
+				)}
+			</div>
+			<button
+				type="submit"
+				aria-label="Clear Search"
+				className={styles.submit}
+				onClick={handleTextSubmit}
+			>
+				Search
+			</button>
+		</form>
 	);
 };
 

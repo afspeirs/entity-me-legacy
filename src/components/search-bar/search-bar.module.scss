@@ -1,27 +1,69 @@
-.root {
+.form {
 	position: relative;
+	display: flex;
+	height: 40px;
+}
+
+.search-root {
+	position: relative;
+	width: 100%;
+	height: inherit;
+
+	&:focus-within {
+		outline: 2px solid black;
+	}
 }
 
 .search {
+	height: inherit;
+	width: 100%;
+	border: none;
+	border-radius: 0;
 	padding: 10px;
 	padding-right: 30px;
-	width: 100%;
+	box-shadow: none;
+
+	&:focus {
+		outline: unset;
+	}
 }
 
-.clear {
+.button {
 	all: unset;
-	position: absolute;
-	right: 0;
-	top: 0;
 	height: 100%;
-	width: 32px;
 	cursor: pointer;
 	color: black;
 	text-align: center;
 	transition: background-color 0.2s ease;
+}
+
+.clear {
+	@extend .button;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 32px;
 
 	&:focus,
 	&:hover {
 		background-color: rgba(0, 0, 0, 0.1);
+	}
+}
+
+.submit {
+	@extend .button;
+	padding: 0 1rem;
+	height: inherit;
+	background-color: var(--clr-light);
+	color: var(--clr-theme);
+
+	.disabled,
+	[disabled] {
+		opacity: 0.4;
+	}
+
+	&:focus,
+	&:hover {
+		background-color: var(--clr-background);
 	}
 }
