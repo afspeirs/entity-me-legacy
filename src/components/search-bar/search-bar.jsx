@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import * as styles from './search-bar.module.scss';
 import { useGlobalState } from '../../hooks/GlobalState';
+import { useHotkeys } from '../../hooks/Hotkeys';
 
 const SearchBar = () => {
 	const [{ search }, dispatch] = useGlobalState();
+	const inputRef = useRef();
 	const [text, setText] = useState(search.text);
-
-	// TODO add hotkey to focus/clear input (using useRef)
 
 	const updateSearchText = (newText) => {
 		dispatch({
@@ -31,6 +31,26 @@ const SearchBar = () => {
 		updateSearchText(text);
 	};
 
+	useHotkeys([
+		// CTRL + F = Show Search bar
+		{
+			keys: ['f'],
+			callback: (event) => {
+				event.preventDefault();
+				inputRef.current.focus();
+			},
+			metaModifier: true,
+		},
+		// Escape = Hide search bar
+		{
+			keys: ['Escape'],
+			callback: () => {
+				handleTextClear();
+				inputRef.current.blur();
+			},
+		},
+	]);
+
 	return (
 		<form className={styles.form} onSubmit={handleTextSubmit}>
 			<div className={styles.searchRoot}>
@@ -39,6 +59,7 @@ const SearchBar = () => {
 					className={styles.search}
 					placeholder="Search for an entity..."
 					onChange={handleTextInput}
+					ref={inputRef}
 					value={text}
 				/>
 				{text.length !== 0 && (
