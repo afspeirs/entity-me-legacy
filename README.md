@@ -4,22 +4,40 @@
 
 ## Available Scripts
 
-In the project directory, you can run:
-
-### `npm start`
+### start
 
 Runs the site in the development mode.
 
-Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
+```bash
+npm start
 
-### `npm run build`
+#### or start the server and open the app in a new browser tab
+npm start -- --open
+```
 
-Builds the project for production. Will build the files to `/public` folder
+### build
 
-### `npm run lint`
+Build the project for production
 
-Lints the whole project and returns issues if any are found.
+```bash
+npm run build
+```
 
-## Built using
+### preview
 
-[Gatsby](https://www.gatsbyjs.com/)
+Used to preview the contents of a production build
+
+```bash
+npm run preview
+
+# Commonly used with the build command
+npm run build && npm run preview
+```
+
+### lint
+
+Lint the project and returns issues if any are found.
+
+```bash
+npm run lint
+```
