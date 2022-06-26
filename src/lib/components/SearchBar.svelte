@@ -71,7 +71,10 @@
   .form {
     position: relative;
     display: flex;
-    height: 40px;
+    height: 32px;
+
+    --webkit-app-region: no-drag;
+    app-region: no-drag;
   }
 
   .root {
