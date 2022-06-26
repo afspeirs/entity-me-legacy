@@ -4,30 +4,24 @@
   "description": "View a list of all of the HTML entities, and provide an easy method of copying its contents",
   "author": "AFSpeirs",
   "scripts": {
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "lint": "eslint . --ext .js,.jsx"
-  },
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.10",
-    "gatsby": "^3.9.0",
-    "gatsby-plugin-manifest": "^3.9.0",
-    "gatsby-plugin-offline": "^4.9.0",
-    "gatsby-plugin-sass": "^4.9.0",
-    "node-fetch": "^2.6.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-simple-snackbar": "^1.1.11",
-    "sass": "^1.35.2"
+    "start": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "prepare": "svelte-kit sync",
+    "lint": "eslint ."
   },
   "devDependencies": {
-    "eslint": "^7.30.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.24.0",
-    "prop-types": "^15.7.2"
-  }
+    "@sveltejs/adapter-netlify": "next",
+    "@sveltejs/kit": "next",
+    "cheerio": "^1.0.0-rc.11",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "svelte": "^3.44.0",
+    "vite-plugin-package-version": "^1.0.2",
+    "workbox-precaching": "^6.5.3"
+  },
+  "type": "module"
 }
