@@ -1,4 +1,6 @@
 <script>
+  import { toast } from '@zerodevx/svelte-toast';
+
   import searchText from '$lib/stores/search';
 
   export let entities = [];
@@ -18,8 +20,9 @@
 
     navigator.clipboard.writeText(arrayOfEntities[0])
       .then(() => {
-        // TODO: Make this a toast notification
-        console.log(`Copied the following character to the clipboard: ${arrayOfEntities[0]}`);
+        toast.push(`Copied "${arrayOfEntities[0]}" to the clipboard`);
+        // eslint-disable-next-line no-console
+        console.log(`Copied "${arrayOfEntities[0]}" to the clipboard`);
       })
       .catch((error) => {
         console.error(`Could not copy text: ${error}`); // eslint-disable-line no-console

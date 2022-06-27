@@ -1,5 +1,12 @@
 <script>
+  import { SvelteToast } from '@zerodevx/svelte-toast';
+
   import Header from '$lib/components/Header.svelte';
+
+  const options = {
+    pausable: true,
+    reversed: true,
+  };
 </script>
 
 <div class="root">
@@ -8,9 +15,17 @@
   <main>
     <slot />
   </main>
+
+  <SvelteToast {options} />
 </div>
 
 <style>
+  :root {
+    --toastContainerTop: auto;
+    --toastContainerRight: 1rem;
+    --toastContainerBottom: 1rem;
+  }
+
   .root {
     display: flex;
     flex-direction: column;
